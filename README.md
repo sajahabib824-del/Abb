@@ -1,25 +1,16 @@
-# Hand Particle Saturn — Final
+# Hand Particle Saturn — Final v2
 
-Updated version with:
-- improved low-light detection by preprocessing camera frames (auto brightness/contrast)
-- watermark "by Abb"
-- Edit button so anyone can change the text shown by the two-finger gesture
-- dynamic font sizing: short text appears large, long text smaller
-- adaptive performance tuning
+This version addresses UI positioning, removes the previous 'Text via' hint, and improves low-light detection heuristics.
 
-## Files
-- `index.html`
-- `app.js`
-- `README.md`
-- `.gitignore`
+## Changes in v2
+- removed "Text via ?text=HELLO"
+- moved & reduced the hint so it doesn't overlap camera preview
+- improved low-light handling using percentile-based sampling to pick brightness/contrast multipliers
+- watermark "by Abb" present
+- Edit button for changing text live; short text => large font, long text => smaller font
+- Adaptive performance tuning retained
 
-## How to run
-Serve via HTTPS or localhost:
-- `python -m http.server 8000` (for local testing)
-- use `ngrok http 8000` for mobile testing via secure tunnel
-- deploy to GitHub Pages / Vercel / Netlify
-
-## Notes
-- Tap "Tap to start camera" first on mobile (iOS requires user gesture)
-- If detection still misses in extreme darkness, increase ambient light or point another light at your hand
-- Change default text via `?text=HELLO` or the Edit button in UI
+## Run
+Serve over HTTPS or localhost. Example:
+- `python -m http.server 8000`
+- `ngrok http 8000` for mobile testing
